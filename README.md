@@ -1,12 +1,13 @@
 # Notion Task Sync
 
-Sync tasks from a todo platform to a Notion database
+Sync tasks from a todo platform to a [Notion database](https://www.notion.so/Intro-to-databases-fd8cd2d212f74c50954c11086d85997e)
 
 ## Motivation
 
-The Notion app is too slow. Sometimes I want to jot something down real quick, and the Notion android app just doesn't cut it. Todo-list apps are way better, and are sort of made for this. This python script for now moves Todo's from a CalDAV calendar to a Notion database. 
+The Notion app is too slow. Sometimes I want to jot something down real quick, and the Notion android app just doesn't cut it. Todo-list apps are way better, and are sort of made for this. This python script for now moves Todo's from a CalDAV calendar ([Nextcloud Tasks](https://github.com/nextcloud/tasks) for example) to a Notion database. 
 
-*NOTE: The original todo is deleted when it's added to the Notion database.*
+**NOTE: The original todo is deleted when it's added to the Notion database.**
+
 This works for me as I want Notion to be my leading source of truth. Future implementations will actually sync the two.
 
 ## Usage
