@@ -1,0 +1,11 @@
+[notion]
+# Obtain the `token_v2` value by inspecting your browser cookies on a logged-in session on Notion.so
+token_v2 = 
+# Obtain the block_url by opening the block as a page and getting the address
+block_url = https://www.notion.so/<name>/<blockid>
+
+[caldav]
+username =
+password =
+url =
+inbox_name =
