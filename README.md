@@ -24,7 +24,7 @@ Config file example is in the repo.
 To build and run docker image use:
 ```bash
 docker build -t notion_task_sync .
-docker run --name notion_task_sync notion_task_sync
+docker run --name notion_task_sync -v $PWD/notion_task_sync.conf:/app/notion_task_sync.conf notion_task_sync
 ```
 
 ## Built With

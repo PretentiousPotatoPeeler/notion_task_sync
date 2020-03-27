@@ -20,10 +20,14 @@ class CalDAVTasksClient:
         calendars = principal.calendars()
 
         def cal_filter(c):
-            str(c).endswith(conf['inbox_name'] + '/')
+            return str(c).endswith(conf['inbox_name'] + '/')
 
-        self.inbox_calendar = list(filter(cal_filter, calendars))[0]
-        logging.info("Using calendar %s", str(self.inbox_calendar))
+        filtered_calendars = list(filter(cal_filter, calendars))
+        if len(filtered_calendars) > 0:
+            self.inbox_calendar = filtered_calendars[0]
+            logging.info("Using calendar %s", str(self.inbox_calendar))
+        else:
+            raise KeyError("Could not find inbox calendar")
 
     def get_tasks(self):
         return [self._format_task(t) for t in self.inbox_calendar.todos()]

@@ -20,7 +20,7 @@ class NotionTasksClient:
         due_date = task['due_date'] if 'due_date' in task else None
         logging.info("Creating task in notion. Summary: %s - Due date: %s",
                      title, due_date)
-        self.page.collection.get_rows()
+        self.page.collection.parent.views
         newrow = self.page.collection.add_row()
         newrow.title = title
         if due_date:
