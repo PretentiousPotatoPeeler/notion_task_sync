@@ -10,9 +10,17 @@ class CalDAVTasksClient:
                 or 'url' not in self.conf):
             raise KeyError("Specify the properties username, password, url and \
                 inbox_name in the config notion section")
-        self.url = "https://" + conf['username'] + ":" + conf['password'] + \
-            "@" + conf['url'] + "/remote.php/caldav/calendars/" + \
-            conf['username'] + "/"
+        if conf['url'].startswith('https://'):
+            self.url = conf['url'].replace('https://', 'https://' +
+                                           conf['username'] + ":" +
+                                           conf["password"] + "@")
+        elif conf['url'].startswith('http://'):
+            self.url = conf['url'].replace('http://', 'http://' +
+                                           conf['username'] + ":" +
+                                           conf["password"] + "@")
+        else:
+            raise KeyError("Config url should start with http:// or https://")
+        self.url += "/remote.php/caldav/calendars/" + conf['username'] + "/"
         logging.info("Using url %s", self.url)
 
         client = caldav.DAVClient(self.url)
